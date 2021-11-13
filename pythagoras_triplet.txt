@@ -1,0 +1,30 @@
+Print whether a given triplet is phythagoras or not
+3,4,5 ===
+5^2=3^2+4^2;
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+   // pythagroas triplet
+   int a,b,c;
+   Scanner sc=new Scanner(System.in);
+   a=sc.nextInt();
+   b=sc.nextInt();
+   c=sc.nextInt();
+   //d = c > (a>b ? a:b) ? c:((a>b) ? a:b);
+   int large=0;
+   large=c>(a>b?a:b)?c:((a>b)?a:b);
+   if (large*large==(a*a+b*b)){
+      System.out.print("pythagoras triplet found");
+   }
+   else if (large*large==(c*c+b*b)){
+      System.out.print("pythagoras triplet found");
+   }
+   else  if (large*large==(a*a+c*c)){
+      System.out.print("pythagoras triplet found");
+   }
+   else 
+       System.out.print("pythagoras triplet not found");
+}
