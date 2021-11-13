@@ -1,0 +1,47 @@
+public static void main(String[] args) {
+    // Rotate a  no. by k digits
+/* case 1 k is positive so 
+    num=12345 
+    k=2 then o/p: 45123    
+    case 2 : k is negative in this case if k=-1 o/p= 34512
+    case 3 : if k> or < the no of digits  if k= -8 then ajust the k
+    
+    */
+int n=12345;
+int k=7;
+// count the no. of digits in n
+int count=0;
+int temp=n;
+while(temp!=0){
+    count+=1;
+    temp=temp/10;
+             }
+System.out.println(count);
+    
+    
+k=k%count;///// with this we are  arranging k between -k to k
+System.out.println(k);
+ if (k<0){
+     k=count+k;
+      System.out.println("hi");
+ }
+  System.out.println(k);
+ int rem=0,val=0,rnum=0;
+ rem=n%(int)Math.pow(10,k);
+  System.out.println(rem);
+ val=n/(int)Math.pow(10,k);
+  System.out.println(val);
+ rnum=rem*(int)Math.pow(10,count-k)+val;
+ System.out.println(rnum);
+     
+     
+     
+     
+    }     
+        
+              
+        // TODO code application logic here
+    
+    
+}
+ 
