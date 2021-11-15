@@ -1,0 +1,54 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<stack>
+
+using namespace std;
+
+int main ()
+{
+  stack < char >st;
+  string str = "(())()[]{()}";
+  char ch;
+  for (int i = 0; i <= str.length (); i++)
+    {
+      //cout<<str[i]<<"\t";
+      ch = str[i];
+      if ((ch == '(')||(ch == '[')||(ch == '{'))
+	{
+	 st.push (ch);
+	}
+      else
+	{
+	  if ((ch == ')') &&(st.top () == '('))
+	    {
+	      st.pop ();
+	    }
+	     else if((ch == ']') &&(st.top () == '['))  {
+	      st.pop ();
+	    }
+	    else if((ch == '}') &&(st.top () == '{'))  {
+	      st.pop ();
+	    }
+	    else
+	    {break;}
+	}
+    }
+
+  if (st.empty ())
+    {
+      cout << "Balanced parenthesis";
+    }
+  else
+    {
+      cout << " not a Balanced parenthesis";
+    }
+
+  return 0;
+}
