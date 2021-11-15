@@ -1,0 +1,14 @@
+    public static void arrayreverseal(int arr[]){
+         System.out.print("in the reverse"+"\n");
+         int left=0;
+         int right=arr.length-1;
+        // System.out.print(left+"\t"+right+"\n");
+         while(left<=right){
+             int swap=arr[left];
+            arr[left]= arr[right];
+            arr[right]=swap;
+            left++;
+            right--;
+         }
+         
+    }
