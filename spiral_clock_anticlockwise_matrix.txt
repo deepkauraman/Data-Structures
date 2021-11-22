@@ -1,0 +1,155 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        int r,c;
+        Scanner sc=new Scanner(System.in);
+        r=sc.nextInt();
+        c=sc.nextInt();
+        int k=0;
+        String str="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        char [][] arr=new char[r][c];
+         for(int i=0;i<r;i++){
+             for(int j=0;j<c;j++){
+                 arr[i][j]=str.charAt(k);
+                 k++;
+             }
+         }// array insertion over
+         
+/* code for spiral printing clockwise
+    int fr=0;
+    int lr=r-1;
+    int fc=0;
+    int lc=c-1;
+    int count=0;
+    while(true){
+        System.out.println(" ");
+    System.out.println(fr+" "+lc+" "+lr+" "+fc);
+ 
+
+
+    for(int i=fr;i<=lc;i++){
+        System.out.print(arr[fr][i]+" ");
+        count++;
+        if(count==r*c){return;}
+    }
+    fr++;
+
+    for(int i=fr;i<=lr;i++){
+        System.out.print(arr[i][lc]+" ");
+         count++;
+        if(count==r*c){return;}
+
+    }
+    lc--;
+     for(int i=lc;i>=fc;i--){
+         System.out.print(arr[lr][i]+" ");
+          count++;
+        if(count==r*c){return;}
+     }
+
+    lr--;
+    for(int i=lr;i>=fr;i--){
+        System.out.print(arr[i][fc]);
+         count++;
+        if(count==r*c){return;}
+    }
+    fc++;
+        
+    }*/
+    
+    
+    // let us write code for anti clockwise 
+    
+     int fr=0;
+     int lc=c-1;
+     int fc=0;
+     int lr=r-1;
+     int count=0;
+     
+     while(true){
+         
+    //      System.out.println(" ");
+      //         System.out.println(fr+" "+lr+" "+fc+" "+lc);
+ 
+     // left wall
+     for(int i=fr;i<=lr;i++){
+           System.out.print(arr[i][fc]+"");
+            count++;
+        if(count==r*c){return;}
+    
+       }
+       fc++;
+        for(int i=fc;i<=lc;i++){System.out.print(arr[lr][i]+" ");
+             count++;
+        if(count==r*c){return;}
+    
+        }
+        lr--;
+        System.out.println(" ");
+       
+         for(int i=lr;i>=fr;i--){System.out.print(arr[i][lc]+" ");
+              count++;
+        if(count==r*c){return;}
+    
+         }
+        lc--;
+        
+System.out.println(" ");
+
+         for(int i=lc; i>=fc;i--){
+             System.out.print(arr[fr][i]+" ");
+              count++;
+        if(count==r*c){return;}
+    
+         }
+        fr++;
+     }
+
+
+  //System.out.println(" ");
+    //           System.out.println(fr+" "+lr+" "+fc+" "+lc);
+ 
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+        }
+
+}
