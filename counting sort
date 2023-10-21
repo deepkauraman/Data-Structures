@@ -1,0 +1,64 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int arr[]= new int[]{1,4,5,6,3,1};
+			for(int i=0;i<arr.length;i++){
+		    System.out.print(arr[i]+":");
+		}
+		int max=0;
+		for( int i=0;i<arr.length;i++){
+		    if(arr[i]>max)
+		    {
+		        max=arr[i];
+		    }
+		}
+		int k=max+1;
+		int count[]= new int[k];
+		for(int i=0;i<k;i++){
+		    count[i]=0;
+		}
+		for(int i=0;i<arr.length;i++){
+		    count[arr[i]]++;
+		}
+		for(int i=0;i<k;i++){
+		    System.out.print(count[i]+":");
+		} 
+		System.out.println();
+		for(int i=1;i<k;i++)
+		{
+		    count[i]=count[i-1]+count[i];
+		}
+		for(int i=0;i<k;i++){
+		    System.out.print(count[i]+":");
+		}
+		int temp[]=new int[arr.length];
+		System.out.println(" For Understanding\n");
+		for(int i=arr.length-1;i>=0;i--){
+		   
+		    temp[count[arr[i]]-1]=arr[i];
+		    count[arr[i]]--;
+		   
+		}
+		/* This will also sort but will produce an unstable result
+			for(int i=0;i<arr.length;i++){
+		   
+		    temp[count[arr[i]]-1]=arr[i];
+		    count[arr[i]]--;
+		   
+		}*/
+		    
+		    	for(int i=0;i<arr.length;i++){
+		    System.out.print(temp[i]+":");
+		} 
+		
+	}
+}
