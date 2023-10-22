@@ -1,0 +1,46 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{
+    static void buildheap(int arr[],int n){
+        for(int i=(n-2)/2;i>=0;i--)
+        {
+            maxheapify(arr,n,i);
+        }
+    }
+   static void heapsort(int arr[],int n){
+        buildheap(arr,n);
+        for(int i=n-1;i>=1;i--){
+            int temp=arr[0];
+            arr[0]=arr[i];
+            arr[i]=temp;
+            maxheapify(arr,i,0);
+        }
+    }
+    static void maxheapify(int arr[],int n,int i){
+        int largest=i,left=2*i+1,right=2*i+2;
+        if(left<n &&arr[left]>arr[largest]) largest=left;
+         if(right<n &&arr[right]>arr[largest]) largest=right;
+         if(largest !=i){
+             int temp=arr[largest];
+             arr[largest]=arr[i];
+             arr[i]=temp;
+             maxheapify(arr,n, largest);
+         }
+    }
+    
+    public static void main(String[] args) {
+		System.out.println("Hello World");
+		int arr[]=new int[]{2,13,40,50,1,3,8};
+		heapsort(arr,7);
+		for(int i=0;i<arr.length;i++){
+		    System.out.println(arr[i]);
+		}
+	}
+}
