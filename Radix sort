@@ -1,0 +1,87 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{
+    static void traverse(int arr[]){
+        
+		    	for(int i=0;i<arr.length;i++){
+		    System.out.print(arr[i]+":");}
+		    System.out.println("\n");
+    }
+    
+  static  void radix(int arr[],int n,int pow){
+      
+      
+        int k=n;
+        
+		int count[]= new int[10];
+		
+		for(int i=0;i<10;i++){
+		    count[i]=0;
+		}
+		// arraning the ith position in the array
+		for(int i=0;i<n;i++){
+		    count[(arr[i]/pow)%10]++;
+		    
+		}
+			for(int i=1;i<10;i++){
+		    count[i]=count[i]+count[i-1];
+		    
+		}
+		traverse(count);
+		System.out.println("\n");
+		int temp[]= new int[n];
+		for(int i=n-1;i>=0;i--)
+		{
+		    temp[count[(arr[i]/pow)%10]-1]=arr[i];
+		    count[(arr[i]/pow)%10]--;
+		}
+		
+		for(int i=0;i<n;i++){
+		    arr[i]=temp[i];
+		}
+			System.out.println();
+		traverse(arr);
+	
+    }
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int arr[]= new int[]{311,412,54,60,3,100};
+			for(int i=0;i<arr.length;i++){
+		    System.out.print(arr[i]+":");
+		}
+		int max=0;
+		for( int i=0;i<arr.length;i++){
+		    if(arr[i]>max)
+		    {
+		        max=arr[i];
+		    }
+		}
+		int exp=10;
+		 radix(arr,arr.length,exp);
+	while(max>0)
+		    { 
+		        radix(arr,arr.length,exp);
+		    exp=exp*10;
+		    max=max/exp;
+		   //System.out.println(max+":"+exp);
+		}
+		
+		traverse(arr);
+		
+		
+		
+		
+		
+		
+	
+		    
+		
+	}
+}
