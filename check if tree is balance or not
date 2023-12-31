@@ -1,0 +1,40 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+class Node {
+    Node left;
+    Node right;
+    int k;
+    Node(int key){
+        k=key;
+    }
+}
+public class Main
+{ static int isbalanced(Node root){
+    if(root==null) return 0;
+    int lh=isbalanced(root.left);// go to the left
+    if(lh==-1) return -1;
+    int rh=isbalanced(root.right);// go to the right
+    if(rh==-1) return -1;
+    if(Math.abs(lh-rh)>1) return -1;
+    else
+      return  Math.max(lh,rh)+1;
+    
+    
+}
+
+	public static void main(String[] args) {
+		
+		Node root= new Node(40);
+		root.left=new Node(20);
+			root.right=new Node(20);
+		System.out.print(isbalanced(root));
+			
+	}
+}
