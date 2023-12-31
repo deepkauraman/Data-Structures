@@ -1,0 +1,58 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+class Node {
+    Node left;
+    Node right;
+    int k;
+    Node(int key){
+        k=key;
+    }
+}
+public class Main
+{
+     static void printlevel(Node root){
+         Queue<Node> q=new LinkedList<Node>();
+         q.add(root);
+         q.add(null);
+         while(q.size()>1){
+             
+             Node curr=q.poll();
+             if(curr==null){
+                System.out.println();
+                q.add(null);
+            
+             }
+             else{
+                 System.out.print(curr.k+" ");
+          
+             if(curr.left!=null){
+                 q.add(curr.left);
+                              }
+              if(curr.right!=null){
+                 q.add(curr.right);
+             }
+                 //System.out.println();
+             
+             }
+         }
+         
+     }
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		Node root= new Node(10);
+		root.left=new Node(20);
+			root.right=new Node(30);
+				root.left.right= new Node(70);
+			root.left.left= new Node(60);
+			root.right.left=new Node(40);	root.right.right=new Node(50);
+			printlevel(root);
+			
+	}
+}
