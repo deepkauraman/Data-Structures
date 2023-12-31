@@ -1,0 +1,66 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+class Node {
+    Node left;
+    Node right;
+    int k;
+    Node(int key){
+        k=key;
+    }
+}
+public class Main
+{ 
+    static int isbalanced(Node root){
+    if(root==null) return 0;
+    int lh=isbalanced(root.left);// go to the left
+    if(lh==-1) return -1;
+    int rh=isbalanced(root.right);// go to the right
+    if(rh==-1) return -1;
+    if(Math.abs(lh-rh)>1) return -1;
+    else
+      return  Math.max(lh,rh)+1;
+    
+    
+}
+static int maximumwidth(Node root){
+    Queue<Node>q =new LinkedList<Node>();
+    q.add(root);
+    int max1,max2=0;
+    max1=q.size();
+    while(q.isEmpty()==false){
+        int count=q.size();
+                for(int i=0;i<count;i++){
+         Node curr=q.poll();
+         if(curr.left!=null){
+             q.add(curr.left);
+         }
+         if(curr.right!=null){
+             q.add(curr.right);
+         }
+        }
+        max2=q.size();
+        max1=Math.max(max1,max2);
+    }
+    return max1;
+}
+
+	public static void main(String[] args) {
+		
+		Node root= new Node(40);
+		root.left=new Node(20);
+		root.left.left=new Node(30);
+			root.left.right=new Node(50);
+			root.right=new Node(60);
+				root.right.left=new Node(50);
+					root.right.right=new Node(50);
+		System.out.print(maximumwidth(root));
+			
+	}
+}
