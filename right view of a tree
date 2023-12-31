@@ -1,0 +1,42 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+class Node {
+    Node left;
+    Node right;
+    int k;
+    Node(int key){
+        k=key;
+    }
+}
+public class Main
+{ static int maxlevel=0;
+     static void printleftview(Node root,int level){
+         if (root== null) return;
+         if(maxlevel<level){
+                 System.out.print(root.k);
+                 maxlevel=level;
+             }
+             printleftview(root.right,level+1);
+             printleftview(root.left,level+1);
+             
+         
+     }
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		Node root= new Node(10);
+		root.left=new Node(20);
+			root.right=new Node(30);root.left.right= new Node(60);
+				root.left.right.right= new Node(70);
+			
+			root.right.left=new Node(40);	root.right.right=new Node(50);
+			printleftview(root,1);
+			
+	}
+}
