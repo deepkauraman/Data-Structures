@@ -1,0 +1,66 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+class Node {
+    Node left;
+    Node right;
+    int k;
+    Node(int key){
+        k=key;
+    }
+}
+public class Main
+{ static int postindex=0;
+  static Node giveninorderpostorder(int in[],int post[],int is,int ie){
+    System.out.println(Arrays.toString(in))  ;
+    System.out.println(Arrays.toString(post))  ; 
+    System.out.print(is+":"+ie)  ;
+    
+    Node root= new Node(post[--postindex]);
+    if(is==ie) return root;
+      int in_index=0;
+    for(int i=is;i<=ie;i++){
+        if(in[i]==root.k)
+        {in_index=i;
+        System.out.print("::"+i);
+        break;
+            
+        }
+    }   
+    System.out.println();
+     root.right=giveninorderpostorder(in,post,in_index+1,ie);
+    root.left=giveninorderpostorder(in,post,is,in_index-1);
+   
+    return root;
+  }
+  static void preorder(Node root){
+      if( root!=null){
+         
+          System.out.print(root.k+" "); 
+          preorder(root.left);
+          preorder(root.right);
+      }
+  }
+
+	public static void main(String[] args) {
+		
+		Node root= new Node(40);
+		root.left=new Node(20);
+		root.left.left=new Node(30);
+			root.left.right=new Node(50);
+			root.right=new Node(60);
+				root.right.left=new Node(50);
+					root.right.right=new Node(50);
+	 int in[]= new int[]{10,20,30,40,50,60};
+	 int post[]=new int[]{10,30,20,60,40,50};
+	 postindex=post.length;
+	 preorder(giveninorderpostorder(in,post,0,in.length-1));
+	 
+	}
+}
